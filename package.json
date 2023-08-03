@@ -4,7 +4,8 @@
   "description": "Simple latex editor",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "rebuild": "electron-rebuild"
   },
   "keywords": [
     "latex"
@@ -12,6 +13,13 @@
   "author": "woynert",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^25.4.0"
+    "@electron/rebuild": "^3.2.13",
+    "electron": "^25.4.0",
+    "electron-tools": "^2.4.2"
+  },
+  "dependencies": {
+    "node-pty": "^1.0.0",
+    "xterm": "^5.2.1",
+    "xterm-addon-fit": "^0.7.0"
   }
 }
