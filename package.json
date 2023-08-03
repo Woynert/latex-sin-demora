@@ -1,0 +1,17 @@
+{
+  "name": "latex-sin-demora",
+  "version": "0.1.0",
+  "description": "Simple latex editor",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "latex"
+  ],
+  "author": "woynert",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^25.4.0"
+  }
+}
