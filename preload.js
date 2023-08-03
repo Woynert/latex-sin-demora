@@ -1,12 +1,12 @@
 // preload.js
 
+const { Terminal } = require("xterm");
+const { FitAddon } = require("xterm-addon-fit");
+const { ipcRenderer } = require("electron");
+const { WebglAddon } = require("xterm-addon-webgl");
+
 window.addEventListener("DOMContentLoaded", () => {
   // terminal
-
-  const Terminal = require("xterm").Terminal;
-  const FitAddon = require("xterm-addon-fit").FitAddon;
-  const ipcRenderer = require("electron").ipcRenderer;
-  const WebglAddon = require("xterm-addon-webgl").WebglAddon;
 
   const term = new Terminal({
     fontFamily: "Hack Nerd Font Mono",
@@ -25,7 +25,7 @@ window.addEventListener("DOMContentLoaded", () => {
   term.onData((e) => {
     ipcRenderer.send("terminal-into", e);
   });
-  ipcRenderer.on("terminal-incData", (event, data) => {
+  ipcRenderer.on("terminal-incData", (_, data) => {
     term.write(data);
   });
 
@@ -33,12 +33,4 @@ window.addEventListener("DOMContentLoaded", () => {
     ipcRenderer.send("terminal-resize", fitAddon.proposeDimensions());
     fitAddon.fit();
   }).observe(term_container);
-});
-
-const { contextBridge } = require("electron");
-
-contextBridge.exposeInMainWorld("myAPI", {
-  xterm: require("xterm").Terminal,
-  "xterm-addon-fit": require("xterm-addon-fit").FitAddon,
-  ipcRenderer: require("electron").ipcRenderer,
 });
