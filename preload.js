@@ -6,16 +6,18 @@ window.addEventListener("DOMContentLoaded", () => {
   const Terminal = require("xterm").Terminal;
   const FitAddon = require("xterm-addon-fit").FitAddon;
   const ipcRenderer = require("electron").ipcRenderer;
+  const WebglAddon = require("xterm-addon-webgl").WebglAddon;
 
   const term = new Terminal({
-    fontFamily: 'Hack Nerd Font Mono',
+    fontFamily: "Hack Nerd Font Mono",
     cursorBlink: true,
-    experimentalCharAtlas: "dynamic"
+    experimentalCharAtlas: "dynamic",
   });
   const fitAddon = new FitAddon();
   const term_container = document.getElementById("terminal-container");
 
   term.loadAddon(fitAddon);
+  term.loadAddon(new WebglAddon());
   term.open(term_container);
 
   // ipc signals
