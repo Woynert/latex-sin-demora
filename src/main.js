@@ -64,8 +64,6 @@ const createWindow = () => {
 
     try {
       const result = await filepath;
-      console.log(result);
-
       if (result.canceled) return;
 
       // send back

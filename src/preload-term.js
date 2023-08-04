@@ -12,7 +12,7 @@ module.exports.init = () => {
     experimentalCharAtlas: "dynamic",
   });
   const fitAddon = new FitAddon();
-  const term_container = document.getElementById("terminal-container");
+  const term_container = document.getElementById("terminalContainer");
 
   term.loadAddon(fitAddon);
   term.loadAddon(new WebglAddon());

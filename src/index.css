@@ -22,6 +22,17 @@ body {
 
 /* toolbar */
 
+.toolbar {
+  user-select: none;
+}
+
 .toolbar > * {
   display: inline-block;
+  user-select: none;
+}
+
+/* Enable text selection only on file path */
+
+#labelFile {
+  user-select: text;
 }

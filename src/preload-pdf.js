@@ -14,7 +14,7 @@ const update_pdf = () => {
 };
 
 const init = () => {
-  viewer = document.getElementById("pdf-viewer");
+  viewer = document.getElementById("pdfViewer");
 
   // watch for file changes
 
