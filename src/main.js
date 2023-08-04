@@ -21,7 +21,7 @@ const createWindow = () => {
   // dev tools
   mainWindow.webContents.openDevTools();
 
-  // spawn shell
+  // terminal - spawn shell
 
   var shell = os.platform() === "win32" ? "powershell.exe" : "bash";
   var ptyProcess = pty.spawn(shell, [], {
@@ -36,7 +36,7 @@ const createWindow = () => {
     mainWindow.webContents.send("terminal-incData", data);
   });
 
-  // ipc signals
+  // terminal - ipc signals
 
   ipcMain.on("terminal-into", (_, data) => {
     ptyProcess.write(data);
@@ -44,6 +44,35 @@ const createWindow = () => {
 
   ipcMain.on("terminal-resize", (_, size) => {
     ptyProcess.resize(size.cols, size.rows);
+  });
+
+  // ui - ipc signals
+
+  ipcMain.on("ui-open-file-req", async () => {
+    // open file dialog
+
+    const { dialog } = require("electron");
+    const filepath = dialog.showOpenDialog({
+      properties: ["openFile"],
+      filters: [
+        { name: ".tex files", extensions: ["tex"] },
+        { name: "All Files", extensions: ["*"] },
+      ],
+    });
+
+    // try get filepath
+
+    try {
+      const result = await filepath;
+      console.log(result);
+
+      if (result.canceled) return;
+
+      // send back
+      mainWindow.webContents.send("ui-open-file-res", result.filePaths[0]);
+    } catch (e) {
+      console.error(e);
+    }
   });
 };
 
