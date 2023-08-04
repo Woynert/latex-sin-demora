@@ -2,7 +2,7 @@
   "name": "latex-sin-demora",
   "version": "0.1.0",
   "description": "Simple latex editor",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
     "start": "electron .",
     "rebuild": "electron-rebuild"
