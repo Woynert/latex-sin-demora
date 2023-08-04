@@ -1,7 +1,3 @@
-html {
-  padding: 8px;
-}
-
 html,
 body {
   height: 100%;
@@ -18,9 +14,20 @@ body {
 .pdfViewer {
   height: 100%;
   width: 100%;
+  border-style: none;
+}
+
+#terminalContainer {
+  background-color: black;
 }
 
 /* toolbar */
+
+.toolbar__container {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+}
 
 .toolbar {
   user-select: none;
