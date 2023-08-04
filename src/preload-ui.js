@@ -17,4 +17,17 @@ module.exports.init = () => {
     State.texFilePath = data;
     labelFile.innerText = State.texFilePath;
   });
+
+  // toogle build
+
+  const btnToggleBuild = document.getElementById("btnToggleBuild");
+  const updateBtnToggleBuild = () => {
+    btnToggleBuild.innerText = State.isBuildActive ? "Stop" : "Resume";
+  };
+  updateBtnToggleBuild();
+
+  btnToggleBuild.addEventListener("click", () => {
+    State.isBuildActive = !State.isBuildActive;
+    updateBtnToggleBuild();
+  });
 };
