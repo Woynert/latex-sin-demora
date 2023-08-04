@@ -10,6 +10,7 @@ in pkgs.mkShell {
 	buildInputs = [
 		pkgs.git
 		pkgs.nodejs_20
+        pkgs.texlive.combined.scheme-full
 	];
 	shellHook = ''
 		echo "Starting latex-sin-demora development shell"
