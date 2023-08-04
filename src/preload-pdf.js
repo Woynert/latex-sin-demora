@@ -1,5 +1,4 @@
 const { watchFile } = require("node:fs");
-
 const { State } = require("./state");
 
 var viewer = null;
@@ -9,7 +8,7 @@ const update_pdf = () => {
   // Set viewer on iframe
   viewer.src =
     "./lib/pdfjs/web/viewer.html?file=" +
-    encodeURIComponent(State.getPdfFilePath);
+    encodeURIComponent(State.getPdfFilePath());
 };
 
 const init = () => {
@@ -18,7 +17,7 @@ const init = () => {
   // watch for file changes
 
   fileWatcher = watchFile(
-    State.getPdfFilePath,
+    State.getPdfFilePath(),
     { interval: 1007 },
     (curr, prev) => {
       console.log(`the current mtime is: ${curr.mtime}`);
