@@ -14,3 +14,9 @@ body {
   display: grid;
   grid-template-rows: 2em auto;
 }
+
+/* toolbar */
+
+.toolbar > *{
+  display: inline-block;
+}

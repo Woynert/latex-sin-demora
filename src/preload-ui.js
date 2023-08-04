@@ -5,6 +5,7 @@ module.exports.init = () => {
   // open file dialog
 
   const btnSelectFile = document.getElementById("btnSelectFile");
+  const labelFile = document.getElementById("labelFile");
 
   btnSelectFile.addEventListener("click", () => {
     ipcRenderer.send("ui-open-file-req", null);
@@ -14,5 +15,6 @@ module.exports.init = () => {
 
   ipcRenderer.on("ui-open-file-res", (_, data) => {
     State.texFilePath = data;
+    labelFile.innerText = State.texFilePath;
   });
 };
