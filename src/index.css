@@ -15,8 +15,13 @@ body {
   grid-template-rows: 2em auto;
 }
 
+.pdfViewer {
+  height: 100%;
+  width: 100%;
+}
+
 /* toolbar */
 
-.toolbar > *{
+.toolbar > * {
   display: inline-block;
 }
