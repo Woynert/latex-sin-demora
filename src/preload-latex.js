@@ -8,6 +8,7 @@ const retryTimeoutMS = 3000;
 
 const getOpts = () => {
   return [
+    "latexmk",
     "-pdfps",
     "-pvc",
     "-pv-",
@@ -46,7 +47,7 @@ const run_builder = () => {
     console.log("Running builder...");
 
     processWatcher = execFile(
-      "latexmk2",
+      "/usr/bin/env",
       getOpts(),
       (error, stdout, _stderr) => {
         if (error) {
