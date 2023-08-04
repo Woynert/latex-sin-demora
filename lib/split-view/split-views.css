@@ -1,0 +1,25 @@
+split-view-resizer {
+  width: 2px;
+  border-width: 1px;
+  margin-left: 4px;
+  margin-right: 4px;
+  
+  background-color: white;
+  border-color: black;
+
+  border-style: solid;
+  border-right-style: solid;
+  border-left-style: solid;
+  border-bottom-style: none;
+  border-top-style: none;
+}
+
+split-view-container {
+  display: flex;
+  overflow: hidden;
+}
+
+.split-view-right {
+  flex: 1 1 0%;
+  min-width: 0;
+}
