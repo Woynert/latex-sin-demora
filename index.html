@@ -7,18 +7,26 @@
     <link rel="stylesheet" href="node_modules/xterm/css/xterm.css" />
     <script src="node_modules/xterm/lib/xterm.js"></script>
     <link rel="stylesheet" href="./lib/split-view/split-views.css" />
+    <link rel="stylesheet" href="./src/index.css" />
   </head>
   <body>
-    <split-view-container>
-      <!--terminal-->
-      <div id="terminal-container"></div>
-
-      <!--resizer-->
-      <split-view-resizer> </split-view-resizer>
-
-      <!--pdf viewer-->
+    <div class="mainGrid">
+      <!--toolbar-->
       <div></div>
-    </split-view-container>
+
+      <split-view-container>
+        <!--terminal-->
+        <div id="terminal-container"></div>
+
+        <!--resizer-->
+        <split-view-resizer> </split-view-resizer>
+
+        <!--pdf viewer-->
+        <div>
+          <div id="pdf-container"></div>
+        </div>
+      </split-view-container>
+    </div>
 
     <!-- You can also require other files to run in this process -->
     <!--<script src="./renderer.js"></script>-->

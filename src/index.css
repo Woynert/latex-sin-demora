@@ -1,0 +1,16 @@
+html {
+  padding: 8px;
+}
+
+html,
+body {
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.mainGrid {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 2em auto;
+}
