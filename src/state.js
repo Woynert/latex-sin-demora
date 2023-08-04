@@ -24,7 +24,7 @@ class State {
   /*
     Whether to interrupt or continue building
   */
-  static isBuildActive = false;
+  static isBuildActive = true;
 
   /*
     Last scroll position to be restored

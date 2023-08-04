@@ -1,6 +1,6 @@
 const { ipcRenderer } = require("electron");
 
-const { run_builder, stop_builder } = require("./preload-latex.js");
+const latexProcess = require("./preload-latex.js");
 const { State } = require("./state");
 
 module.exports.init = () => {
@@ -18,6 +18,12 @@ module.exports.init = () => {
   ipcRenderer.on("ui-open-file-res", (_, data) => {
     State.texFilePath = data;
     labelFile.innerText = State.texFilePath;
+
+    // kill current builder
+
+    if (State.isBuildActive) {
+      latexProcess.stop_builder();
+    }
   });
 
   // toogle build
@@ -35,9 +41,9 @@ module.exports.init = () => {
     // start / stop building
 
     if (State.isBuildActive) {
-      run_builder();
+      latexProcess.run_builder();
     } else {
-      stop_builder();
+      latexProcess.stop_builder();
     }
   });
 };
