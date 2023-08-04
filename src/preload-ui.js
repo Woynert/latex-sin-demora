@@ -22,7 +22,7 @@ module.exports.init = () => {
 
   const btnToggleBuild = document.getElementById("btnToggleBuild");
   const updateBtnToggleBuild = () => {
-    btnToggleBuild.innerText = State.isBuildActive ? "Stop" : "Resume";
+    btnToggleBuild.innerText = State.isBuildActive ? "🟢️ Stop" : "⬛️ Resume";
   };
   updateBtnToggleBuild();
 
