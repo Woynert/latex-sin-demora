@@ -31,6 +31,11 @@ class State {
   */
   static scrollPosition = 0;
 
+  /*
+    Milliseconds to wait before refreshing pdf
+  */
+  static checkPdfUpdatesMS = 2000;
+
   static getPdfFilePath = () => {
     return path.join(State.outDir, State.pdfFileName + ".pdf");
   };

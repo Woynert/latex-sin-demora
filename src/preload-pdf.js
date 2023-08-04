@@ -20,7 +20,7 @@ const init = () => {
 
   fileWatcher = watchFile(
     State.getPdfFilePath(),
-    { interval: 1007 },
+    { interval: State.checkPdfUpdatesMS },
     (curr, prev) => {
       // check if it was modified
       if (prev.mtimeMs == curr.mtimeMs) return;
