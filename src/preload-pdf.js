@@ -5,6 +5,8 @@ var viewer = null;
 var fileWatcher = null;
 
 const update_pdf = () => {
+  console.log("Updating PDF...");
+
   // Set viewer on iframe
   viewer.src =
     "./lib/pdfjs/web/viewer.html?file=" +
@@ -20,12 +22,14 @@ const init = () => {
     State.getPdfFilePath(),
     { interval: 1007 },
     (curr, prev) => {
-      console.log(`the current mtime is: ${curr.mtime}`);
-      console.log(`the previous mtime was: ${prev.mtime}`);
+      // check if it was modified
+      if (prev.mtimeMs == curr.mtimeMs) return;
 
       update_pdf();
     }
   );
+
+  // start
 
   update_pdf();
 };

@@ -9,7 +9,7 @@ class State {
   /*
     Generated pdf filename
   */
-  static pdfFileName = "tmp.pdf";
+  static pdfFileName = "tmp";
 
   /*
     Where temporary generated files will be placed
@@ -32,9 +32,10 @@ class State {
   static scrollPosition = 0;
 
   static getPdfFilePath = () => {
-    return path.join(State.outDir, State.pdfFileName);
+    return path.join(State.outDir, State.pdfFileName + ".pdf");
   };
 }
+
 module.exports = {
   State,
 };

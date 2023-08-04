@@ -1,4 +1,6 @@
 const { ipcRenderer } = require("electron");
+
+const { run_builder, stop_builder } = require("./preload-latex.js");
 const { State } = require("./state");
 
 module.exports.init = () => {
@@ -29,5 +31,13 @@ module.exports.init = () => {
   btnToggleBuild.addEventListener("click", () => {
     State.isBuildActive = !State.isBuildActive;
     updateBtnToggleBuild();
+
+    // start / stop building
+
+    if (State.isBuildActive) {
+      run_builder();
+    } else {
+      stop_builder();
+    }
   });
 };
