@@ -17,19 +17,9 @@ class State {
   static outDir = ".cache/latexmk/";
 
   /*
-    Build command
-  */
-  static buildCmd = "";
-
-  /*
     Whether to interrupt or continue building
   */
   static isBuildActive = true;
-
-  /*
-    Last scroll position to be restored
-  */
-  static scrollPosition = 0;
 
   /*
     Milliseconds to wait before refreshing pdf
