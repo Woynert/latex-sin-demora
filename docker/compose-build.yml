@@ -1,0 +1,13 @@
+version: "3.0"
+
+services:
+  node:
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+    restart: "no"
+    volumes:
+      - ./script:/script 
+      - ./out:/out # directory where artifacts will be copied
+    command:
+      - "/script/build-appimage.sh"
