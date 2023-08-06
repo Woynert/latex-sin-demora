@@ -1,6 +1,8 @@
 const { ipcRenderer } = require("electron");
+const { resolve } = require("path");
 
 const latexProcess = require("./preload-latex.js");
+const pdfViewer = require("./preload-pdf");
 const { State } = require("./state");
 
 module.exports.init = () => {
@@ -24,6 +26,10 @@ module.exports.init = () => {
     if (State.isBuildActive) {
       latexProcess.stop_builder();
     }
+
+    // init viewer
+
+    pdfViewer.init();
   });
 
   // toogle build

@@ -1,8 +1,8 @@
-const { watchFile } = require("node:fs");
+const { watchFile, unwatchFile } = require("node:fs");
 const { State } = require("./state");
 
 var viewer = null;
-var fileWatcher = null;
+var currentlyWatchedFile = "";
 
 const update_pdf = () => {
   console.log("Updating PDF...");
@@ -10,16 +10,22 @@ const update_pdf = () => {
   // Set viewer on iframe
   viewer.src =
     "./lib/pdfjs/web/viewer.html?file=" +
-    encodeURIComponent(State.getPdfFilePath());
+    encodeURIComponent(currentlyWatchedFile);
 };
 
 const init = () => {
+  // unwatch file
+  if (currentlyWatchedFile) unwatchFile(currentlyWatchedFile);
+
   viewer = document.getElementById("pdfViewer");
+  currentlyWatchedFile = State.getPdfFilePath();
 
   // watch for file changes
 
-  fileWatcher = watchFile(
-    State.getPdfFilePath(),
+  console.log("Watching file: ", currentlyWatchedFile);
+
+  watchFile(
+    currentlyWatchedFile,
     { interval: State.checkPdfUpdatesMS },
     (curr, prev) => {
       // check if it was modified
@@ -28,8 +34,6 @@ const init = () => {
       update_pdf();
     }
   );
-
-  // start
 
   update_pdf();
 };

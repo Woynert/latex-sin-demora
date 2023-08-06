@@ -1,4 +1,4 @@
-const path = require("path");
+const { resolve } = require("path");
 
 class State {
   /*
@@ -14,7 +14,7 @@ class State {
   /*
     Where temporary generated files will be placed
   */
-  static outDir = "/tmp/.cache/latexmk/";
+  static outDir = ".cache/latexmk/";
 
   /*
     Build command
@@ -37,7 +37,11 @@ class State {
   static checkPdfUpdatesMS = 2000;
 
   static getPdfFilePath = () => {
-    return path.join(State.outDir, State.pdfFileName + ".pdf");
+    return resolve(
+      State.texFilePath,
+      "../.cache/latexmk/",
+      State.pdfFileName + ".pdf"
+    );
   };
 }
 
