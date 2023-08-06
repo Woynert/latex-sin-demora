@@ -7,6 +7,7 @@ const createWindow = () => {
   // Create the browser window.
 
   const mainWindow = new BrowserWindow({
+    title: 'Latex sin demora',
     width: 800,
     height: 600,
     webPreferences: {
