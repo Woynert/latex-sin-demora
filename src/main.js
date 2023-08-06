@@ -20,7 +20,7 @@ const createWindow = () => {
   mainWindow.loadFile("index.html");
 
   // dev tools
-  mainWindow.webContents.openDevTools();
+  //mainWindow.webContents.openDevTools();
 
   // terminal - spawn shell
 
