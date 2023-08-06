@@ -1,11 +1,12 @@
 {
   "name": "latex-sin-demora",
   "version": "0.1.0",
-  "description": "Simple latex editor",
+  "description": "Personal latex editor",
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
-    "rebuild": "electron-rebuild"
+    "compile": "npx electron-rebuild --f -w node-pty",
+    "package": "electron-builder"
   },
   "keywords": [
     "latex"
@@ -13,9 +14,9 @@
   "author": "woynert",
   "license": "MIT",
   "devDependencies": {
-    "@electron/rebuild": "^3.2.13",
     "electron": "^25.4.0",
-    "electron-tools": "^2.4.2"
+    "@electron/rebuild": "^3.2.13",
+    "electron-builder": "^24.6.3"
   },
   "dependencies": {
     "node-pty": "^1.0.0",
