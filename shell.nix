@@ -9,8 +9,12 @@ in pkgs.mkShell {
 	name = "dev-environment";
 	buildInputs = [
 		pkgs.git
-		pkgs.nodejs_20
-        pkgs.texlive.combined.scheme-full
+        pkgs.nodejs_20
+        
+        # compiling node-pty module
+        pkgs.python39
+        pkgs.gnumake
+        pkgs.gcc
 	];
 	shellHook = ''
 		echo "Starting latex-sin-demora development shell"
