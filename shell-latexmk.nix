@@ -8,7 +8,24 @@ let
 in pkgs.mkShell {
 	name = "dev-environment";
 	buildInputs = [
+		pkgs.git
+        pkgs.nodejs_20
+        
+        # compiling node-pty module
+        pkgs.python39
+        pkgs.gnumake
+        pkgs.gcc
+
+        # runtime dependecy
         pkgs.texlive.combined.scheme-full
 	];
-}
+	shellHook = ''
+		echo "Starting latex-sin-demora development shell"
 
+		# custom prompt
+		if [ -e ~/.gitconfig ] && [ -f ~/.git-prompt.sh ]; then
+			source ~/.git-prompt.sh
+			PS1='\[\033[01;33m\]nix:\w\[\033[01;34m\]$(__git_ps1 " %s")\[\033[33m\]\$\[\033[00m\] '
+		fi
+	'';
+}
