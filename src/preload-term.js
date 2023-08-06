@@ -7,9 +7,9 @@ module.exports.init = () => {
   // terminal
 
   const term = new Terminal({
-    fontFamily: "Hack Nerd Font Mono",
-    cursorBlink: true,
-    experimentalCharAtlas: "dynamic",
+    fontFamily: "'Hack Nerd Font Mono', monospace",
+    cursorBlink: false,
+    tabStopWidth: 4,
   });
   const fitAddon = new FitAddon();
   const term_container = document.getElementById("terminalContainer");
